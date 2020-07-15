@@ -4,11 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.example.covidtracker.R
+import com.example.covidtracker.*
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import kotlinx.android.synthetic.main.fragment_gujarat.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.CacheControl.Companion.parse
+import org.xml.sax.Parser
+import java.util.logging.Level.parse
 
 class GujaratFragment : Fragment() {
 
@@ -19,8 +27,7 @@ class GujaratFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_gujarat, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gujarat)
-        textView.text = "Gujarat"
         return root
-        }
+    }
 }
+
