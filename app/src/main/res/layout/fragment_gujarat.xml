@@ -13,13 +13,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/pt_serif_bold"
         android:text="@string/menu_gujarat"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +51,7 @@
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="CONFIRMED"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@android:color/holo_red_light"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -61,7 +62,7 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="ACTIVE"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@android:color/holo_purple"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -72,7 +73,7 @@
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="RECOVERED"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@android:color/holo_green_light"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -83,7 +84,7 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="DEATH"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/design_default_color_primary"
                 android:textSize="12dp"
                 android:textStyle="bold" />
 
@@ -96,6 +97,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/container" />
-
 
 </RelativeLayout>
