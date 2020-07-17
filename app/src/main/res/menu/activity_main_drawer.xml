@@ -8,7 +8,8 @@
         android:title="@string/menu_india" />
     <item
         android:id="@+id/nav_gujarat"
-        android:title="@string/menu_gujarat" />
+        android:title="@string/menu_gujarat"
+        android:visible="false"/>
     <item
         android:id="@+id/nav_otherstate"
         android:title="@string/menu_otherstate" />

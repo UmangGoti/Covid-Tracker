@@ -10,10 +10,10 @@ data class ResponseOt(
 
 @Parcelize
 data class StatewiseItem(
-	val recovered: String? = null,
-	val active: String? = null,
+	val recovered: String ,
+	val active: String ,
 	val state: String? = null,
-	val confirmed: String? = null,
-	val deaths: String? = null,
+	val confirmed: String ,
+	val deaths: String ,
 	val lastupdatedtime: String? = null
 ) : Parcelable

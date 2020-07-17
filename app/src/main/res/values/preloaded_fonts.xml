@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/biorhyme_expanded_regular</item>
+        <item>@font/fascinate</item>
+        <item>@font/libre_baskerville_bold</item>
+        <item>@font/pt_serif_bold</item>
+        <item>@font/syncopate_bold</item>
+    </array>
+</resources>

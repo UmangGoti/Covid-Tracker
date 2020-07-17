@@ -14,9 +14,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.CacheControl.Companion.parse
-import org.xml.sax.Parser
-import java.util.logging.Level.parse
 
 class GujaratFragment : Fragment() {
 

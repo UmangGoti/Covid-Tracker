@@ -1,29 +1,23 @@
 package com.example.covidtracker.ui.India
 
-import android.app.DownloadManager
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import com.example.covidtracker.OtClient
 import com.example.covidtracker.R
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
+import com.example.covidtracker.ResponseOt
+import com.example.covidtracker.StatewiseItem
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_india.*
+import kotlinx.coroutines.*
+import java.text.DecimalFormat
+
 
 class IndiaFragment : Fragment() {
-
-//    var url:URL = URL("https://api.covid19india.org/data.json")
-//    var jsonString:String = ""
-//    var textVal:String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,29 +25,60 @@ class IndiaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_india, container, false)
-
-        val textView: TextView = root.findViewById(R.id.text_india)
-        textView.text = "India"
-//        jsonString = getJsonFromUrl(url.toString())
-
-//        try{
-//            var jsonOb1:JSONObject = JSONObject(url.toString())
-//            var jsonArr1:JSONArray = jsonOb1.getJSONArray("tested")
-//            var jsonArr2:JSONArray = JSONArray()
-//            for (i in 0 until jsonArr1.length()){
-//                var jsonOb2:JSONObject = jsonArr1.getJSONObject(i)
-//                if(jsonOb2.getString("updatetimestamp").equals("14/07/2020 09:00:00")){
-//                    textVal = jsonOb2.getString("totalsamplestested")
-//                }
-//            }
-//            val textView1: TextView = root.findViewById(R.id.totalCase)
-//            textView1.text = textVal
-//        }catch(e: Exception){
-//            e.printStackTrace()
-//        }
+        fetchIndiaResults()
         return root
     }
-//    fun getJsonFromUrl(pURL: String) : String {
-//        return URL(pURL).readText()
-//    }
+    private fun fetchIndiaResults() {
+        GlobalScope.launch {
+            try {
+                val ind = withContext(Dispatchers.IO) {
+                    delay(Long.MIN_VALUE)
+                    OtClient.api.clone().execute()
+                }
+                if (ind.isSuccessful) {
+                    val data = Gson().fromJson(ind.body?.string(), ResponseOt::class.java)
+                    launch(Dispatchers.Main) {
+                        bindCombinedData(data.statewise[0])
+                    }
+                } else {
+                    Toast.makeText(context, "Data Not Found", Toast.LENGTH_LONG).show()
+                }
+            } catch (e:Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun bindCombinedData(data: StatewiseItem) {
+        var l1 = data.confirmed.toInt()
+        val animator1 = ValueAnimator.ofInt(0,l1)
+        animator1.duration = 1000
+        animator1.addUpdateListener { animation -> totalConfirmedCase.setText(animation.animatedValue.toString())}
+        animator1.start()
+
+
+        var l2 = data.active.toInt()
+        val animator2 = ValueAnimator.ofInt(0,l2)
+        animator2.duration = 1000
+        animator2.addUpdateListener { animation -> totalActiveCase.setText(animation.animatedValue.toString()) }
+        animator2.start()
+
+        var l3 = data.recovered.toInt()
+        val animator3 = ValueAnimator.ofInt(0,l3)
+        animator3.duration = 1000
+        animator3.addUpdateListener { animation -> totalRecoveredCase.setText(animation.animatedValue.toString()) }
+        animator3.start()
+
+        var l4  = data.deaths.toInt()
+        val animator4 = ValueAnimator.ofInt(0,l4)
+        animator4.duration = 1000
+        animator4.addUpdateListener { animation -> totalDeceasedCase.setText(animation.animatedValue.toString()) }
+        animator4.start()
+
+//        totalConfirmedCase.text = data.confirmed
+//        totalActiveCase.text = data.active
+//        totalRecoveredCase.text = data.recovered
+//        totalDeceasedCase.text = data.deaths
+        lastUpdated.text = data.lastupdatedtime
+    }
 }
