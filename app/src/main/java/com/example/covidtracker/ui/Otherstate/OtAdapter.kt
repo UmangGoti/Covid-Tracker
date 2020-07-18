@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.example.covidtracker.R
 import com.example.covidtracker.StatewiseItem
-import kotlinx.android.synthetic.main.gujarat_list.view.*
+import kotlinx.android.synthetic.main.data_list.view.*
 
 class OtAdapter (val list: List<StatewiseItem>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-    val view = convertView ?: LayoutInflater.from(parent?.context).inflate(R.layout.gujarat_list,parent,false)
+    val view = convertView ?: LayoutInflater.from(parent?.context).inflate(R.layout.data_list,parent,false)
         val item = list[position]
         view.confirmed_tv.text = item.confirmed
         view.recovered_tv.text = item.recovered

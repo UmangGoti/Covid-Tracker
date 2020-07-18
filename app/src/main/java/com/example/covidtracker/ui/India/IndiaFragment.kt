@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.covidtracker.OtClient
+import com.example.covidtracker.commonClient
 import com.example.covidtracker.R
 import com.example.covidtracker.ResponseOt
 import com.example.covidtracker.StatewiseItem
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_india.*
 import kotlinx.coroutines.*
-import java.text.DecimalFormat
 
 
 class IndiaFragment : Fragment() {
@@ -33,7 +32,7 @@ class IndiaFragment : Fragment() {
             try {
                 val ind = withContext(Dispatchers.IO) {
                     delay(Long.MIN_VALUE)
-                    OtClient.api.clone().execute()
+                    commonClient.api.clone().execute()
                 }
                 if (ind.isSuccessful) {
                     val data = Gson().fromJson(ind.body?.string(), ResponseOt::class.java)

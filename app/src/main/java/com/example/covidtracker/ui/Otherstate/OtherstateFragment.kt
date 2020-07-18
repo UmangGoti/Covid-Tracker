@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.covidtracker.OtClient
+import com.example.covidtracker.commonClient
 import com.example.covidtracker.ResponseOt
 import com.example.covidtracker.StatewiseItem
 import com.example.covidtracker.*
@@ -33,7 +33,7 @@ class OtherstateFragment : Fragment() {
             GlobalScope.launch {
                 val ots = withContext(Dispatchers.IO) {
                     delay(Long.MIN_VALUE)
-                    OtClient.api.clone().execute()
+                    commonClient.api.clone().execute()
                 }
                 if (ots.isSuccessful) {
                     val data = Gson().fromJson(ots.body?.string(), ResponseOt::class.java)
