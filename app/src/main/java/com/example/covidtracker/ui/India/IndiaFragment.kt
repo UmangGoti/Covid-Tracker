@@ -2,6 +2,7 @@ package com.example.covidtracker.ui.India
 
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.util.TimeUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,9 @@ import com.example.covidtracker.StatewiseItem
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_india.*
 import kotlinx.coroutines.*
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class IndiaFragment : Fragment() {
@@ -73,11 +77,27 @@ class IndiaFragment : Fragment() {
         animator4.duration = 1000
         animator4.addUpdateListener { animation -> totalDeceasedCase.setText(animation.animatedValue.toString()) }
         animator4.start()
-
-//        totalConfirmedCase.text = data.confirmed
-//        totalActiveCase.text = data.active
-//        totalRecoveredCase.text = data.recovered
-//        totalDeceasedCase.text = data.deaths
-        lastUpdated.text = data.lastupdatedtime
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
+        lastUpdated.text = "Last Updated ${getUpdate(dateFormat.parse(data.lastupdatedtime.toString()))}"
+    }
+    fun getUpdate(lastDT: Date): String {
+        val current = Date()
+        val hours:Long = TimeUnit.MILLISECONDS.toHours(current.time - lastDT.time)
+        val minutes:Long = TimeUnit.MILLISECONDS.toMinutes(current.time - lastDT.time)
+        val secs:Long = TimeUnit.MILLISECONDS.toSeconds(current.time - lastDT.time)
+        return when {
+            secs < 60 -> {
+                "Few Secound ago"
+            }
+            minutes < 60 -> {
+                "$minutes Minutes ago"
+            }
+            hours < 24 -> {
+                "$hours Hour ${minutes % 60} Minutes ago"
+            }
+            else -> {
+                SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(lastDT).toString()
+            }
+        }
     }
 }
