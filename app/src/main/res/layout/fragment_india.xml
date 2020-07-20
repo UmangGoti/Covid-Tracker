@@ -19,6 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/indian_flag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/ic_india_flag"
+        app:layout_constraintStart_toEndOf="@+id/text_india"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textConfirmed"
         android:layout_width="wrap_content"
