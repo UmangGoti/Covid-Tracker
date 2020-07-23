@@ -41,7 +41,7 @@ class GujaratFragment : Fragment() {
     }
 
     private fun bindDistrictWiseData(subList: List<DistrictwiseItem>) {
-        var districtAdapter = GtAdapter(subList)
+        val districtAdapter = GtAdapter(subList)
         list_gujarat.adapter = districtAdapter
     }
 }
