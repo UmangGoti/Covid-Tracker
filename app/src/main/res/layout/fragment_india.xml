@@ -11,12 +11,13 @@
         android:id="@+id/text_india"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/syncopate_bold"
         android:text="@string/menu_india"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,17 +25,18 @@
         android:id="@+id/indian_flag"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="77dp"
         android:background="@drawable/ic_india_flag"
         app:layout_constraintStart_toEndOf="@+id/text_india"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_india_flag" />
 
     <TextView
         android:id="@+id/textConfirmed"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         android:text="Confirmed"
         android:textColor="@android:color/holo_red_light"
         android:textSize="24sp"
