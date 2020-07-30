@@ -14,12 +14,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/syncopate_bold"
+        android:fontFamily="@font/abril_fatface"
         android:text="@string/menu_gujarat"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:letterSpacing="0.15"/>
 
     <LinearLayout
         android:id="@+id/container"

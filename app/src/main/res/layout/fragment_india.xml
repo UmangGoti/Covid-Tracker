@@ -11,11 +11,12 @@
         android:id="@+id/text_india"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/syncopate_bold"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/abril_fatface"
+        android:letterSpacing="0.10"
         android:text="@string/menu_india"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +26,8 @@
         android:id="@+id/indian_flag"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/ic_india_flag"
         app:layout_constraintStart_toEndOf="@+id/text_india"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,7 +37,8 @@
         android:id="@+id/textConfirmed"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/abril_fatface"
         android:text="Confirmed"
         android:textColor="@android:color/holo_red_light"
         android:textSize="24sp"
@@ -56,17 +58,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textConfirmed" />
 
-        <TextView
-            android:id="@+id/textActive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Active"
-            android:textColor="@android:color/holo_purple"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalConfirmedCase" />
+    <TextView
+        android:id="@+id/textActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Active"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalConfirmedCase" />
 
         <TextView
             android:id="@+id/totalActiveCase"
@@ -79,17 +82,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textActive" />
 
-        <TextView
-            android:id="@+id/textRecovered"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Recovered"
-            android:textColor="@android:color/holo_green_light"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalActiveCase" />
+    <TextView
+        android:id="@+id/textRecovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Recovered"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalActiveCase" />
 
         <TextView
             android:id="@+id/totalRecoveredCase"
@@ -102,17 +106,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textRecovered" />
 
-        <TextView
-            android:id="@+id/textDeceased"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Deceased"
-            android:textColor="@color/design_default_color_primary"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalRecoveredCase" />
+    <TextView
+        android:id="@+id/textDeceased"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Deceased"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalRecoveredCase" />
 
         <TextView
             android:id="@+id/totalDeceasedCase"
@@ -125,16 +130,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDeceased" />
 
-        <TextView
-            android:id="@+id/lastUpdated"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalDeceasedCase" />
+    <TextView
+        android:id="@+id/lastUpdated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/abril_fatface"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalDeceasedCase" />
 </androidx.constraintlayout.widget.ConstraintLayout>
