@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Covid Tracker</string>
-    <string name="menu_india">India</string>
-    <string name="menu_gujarat">Gujarat</string>
-    <string name="menu_otherstate">States</string>
+    <string name="menu_india">INDIA</string>
+    <string name="menu_gujarat">GUJARAT</string>
+    <string name="menu_otherstate">STATES</string>
     <string name="country_name">India</string>
 </resources>
